@@ -23,28 +23,39 @@
 
                 transition: background-color 0.3s ease, color 0.3s ease;
             }
-            
+
+            body.light-theme {
+                background-color: #ffffff;
+                color: #3a3a3a;
+            }
+
             article {
                 max-width: 1200px;
                 margin: 0 auto;
             }
 
+            h1 {
+                position: relative;
+                margin-bottom: 2rem;
+                padding-left: 2rem;
+
+                color: #4ec9b0;
+                font-size: 2rem;
+            }
+
             /* animation styling */
-            .project-card {
+            project-card {
                 animation: fadeInUp 0.6s ease-out forwards;
                 opacity: 0;
             }
-            .project-card:nth-child(2) {
+            project-card:nth-child(2) {
                 animation-delay: 0.1s;
             }
-            .project-card:nth-child(3) {
+            project-card:nth-child(3) {
                 animation-delay: 0.2s;
             }
-            .project-card:nth-child(4) {
+            project-card:nth-child(4) {
                 animation-delay: 0.3s;
-            }
-            .project-card:nth-child(5) {
-                animation-delay: 0.4s;
             }
             @keyframes fadeInUp {
                 from {
@@ -56,212 +67,70 @@
                     transform: translateY(0);
                 }
             }
+
+            @media (max-width: 768px) {
+                body {
+                    padding: 1.5rem 2rem;
+                    font-size: 0.85rem;
+                }
+
+                h1 {
+                    font-size: 1.5rem;
+                    padding-left: 1.5rem;
+                }
+            }
+
+            @media (max-width: 480px) {
+                body {
+                    padding: 1rem 1.5rem;
+                    font-size: 0.8rem;
+                }
+
+                h1 {
+                    font-size: 1.3rem;
+                    padding-left: 1rem;
+                }
+            }
         </style>
-        <link rel="stylesheet" href="../css/projects.css" />
         <script src="../js/theme.js"></script>
+        <script src="../js/project-card.js"></script>
     </head>
     <body>
         <article>
             <h1>Projects Portfolio</h1>
 
-            <section class="project-card" data-index="1">
-                <header class="project-header">
-                    <h2># Assembly Typing Game</h2>
-                </header>
-                <p class="project-description">
-                    A retro-style typing game built entirely in x86 Assembly
-                    Language, featuring customizable difficulty levels and an
-                    arcade-inspired UI. Challenge your typing speed as words
-                    fall from the top of the screen!
-                </p>
+            <project-card
+                data-index="1"
+                title="# Assembly Typing Game"
+                description="A retro-style typing game built entirely in x86 Assembly Language, featuring customizable difficulty levels and an arcade-inspired UI. Challenge your typing speed as words fall from the top of the screen!"
+                image="../assets/gif/TypingGame.gif"
+                image-alt="Assembly Typing Game demo showing words falling from the top of the screen"
+                link="https://www.youtube.com/watch?v=qofZkrQc83M"
+                overview="This typing game demonstrates low-level programming expertise by implementing an interactive arcade experience entirely in x86 Assembly Language. Linked with the Irvine Library, the project features dynamic word generation, adjustable game speed, and a polished user interface inspired by the popular ZType game. Players race against falling words, testing both their typing accuracy and speed. The project showcases my ability to work with hardware-level programming concepts including memory management, real-time input handling, and graphics rendering—all without the abstractions of high-level languages."
+                tags="x86 Assembly, Irvine Library, Real-time Input, Memory Management"
+            ></project-card>
 
-                <figure class="video-container">
-                    <iframe
-                        width="560"
-                        height="315"
-                        src="https://www.youtube.com/embed/qofZkrQc83M"
-                        title="Typing Game Demo"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen
-                    >
-                    </iframe>
-                </figure>
+            <project-card
+                data-index="2"
+                title="C++ Graphing Calculator"
+                description="A C++ graphing calculator that parses mathematical expressions using the Shunting Yard algorithm and renders real-time plots with custom data structures."
+                image="../assets/gif/GraphingCalculator.gif"
+                image-alt="C++ Graphing Calculator demo showing real-time function plotting"
+                link="https://www.youtube.com/watch?v=RbQpmkbzOAI"
+                overview="This graphing calculator showcases low-level systems programming and algorithm implementation in C++. Built from the ground up with custom linked-list-based Stack and Queue data structures, it uses the Shunting Yard algorithm to parse complex mathematical expressions and converts them to Reverse Polish Notation (RPN) for efficient evaluation. The SFML graphics library powers real-time visualization, rendering smooth function plots as users input equations. This project demonstrates strong fundamentals in data structures, parsing algorithms, and graphics programming—all without relying on high-level abstractions or libraries for core functionality."
+                tags="C++, SFML Graphics, Shunting Yard Algorithm, Custom Data Structures, RPN Evaluation"
+            ></project-card>
 
-                <aside class="project-pitch">
-                    <h3>Project Overview</h3>
-                    <p>
-                        This typing game demonstrates low-level programming
-                        expertise by implementing an interactive arcade
-                        experience entirely in x86 Assembly Language. Linked
-                        with the Irvine Library, the project features dynamic
-                        word generation, adjustable game speed, and a polished
-                        user interface inspired by the popular ZType game.
-                        Players race against falling words, testing both their
-                        typing accuracy and speed. The project showcases my
-                        ability to work with hardware-level programming concepts
-                        including memory management, real-time input handling,
-                        and graphics rendering—all without the abstractions of
-                        high-level languages.
-                    </p>
-                </aside>
-
-                <footer class="tech-stack">
-                    <span>x86 Assembly</span>
-                    <span>Irvine Library</span>
-                    <span>Real-time Input</span>
-                    <span>Memory Management</span>
-                </footer>
-            </section>
-
-            <section class="project-card" data-index="2">
-                <header class="project-header">
-                    <h2>C++ Graphing Calculator</h2>
-                </header>
-                <p class="project-description">
-                    A C++ graphing calculator that parses mathematical
-                    expressions using the Shunting Yard algorithm and renders
-                    real-time plots with custom data structures.
-                </p>
-
-                <figure class="video-container">
-                    <iframe
-                        width="560"
-                        height="315"
-                        src="https://www.youtube.com/embed/RbQpmkbzOAI"
-                        title="Graphing Calculator Demo"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen
-                    >
-                    </iframe>
-                </figure>
-
-                <aside class="project-pitch">
-                    <h3>Project Overview</h3>
-                    <p>
-                        This graphing calculator showcases low-level systems
-                        programming and algorithm implementation in C++. Built
-                        from the ground up with custom linked-list-based Stack
-                        and Queue data structures, it uses the Shunting Yard
-                        algorithm to parse complex mathematical expressions and
-                        converts them to Reverse Polish Notation (RPN) for
-                        efficient evaluation. The SFML graphics library powers
-                        real-time visualization, rendering smooth function plots
-                        as users input equations. This project demonstrates
-                        strong fundamentals in data structures, parsing
-                        algorithms, and graphics programming—all without relying
-                        on high-level abstractions or libraries for core
-                        functionality.
-                    </p>
-                </aside>
-
-                <footer class="tech-stack">
-                    <span>C++</span>
-                    <span>SFML Graphics</span>
-                    <span>Shunting Yard Algorithm</span>
-                    <span>Custom Data Structures</span>
-                    <span>RPN Evaluation</span>
-                </footer>
-            </section>
-
-            <section class="project-card" data-index="3">
-                <header class="project-header">
-                    <h2>Record Tables Database Engine</h2>
-                </header>
-                <p class="project-description">
-                    A lightweight C++ record/table engine featuring SQL-like
-                    query processing, B+ tree indexing, and binary file storage.
-                    Implements a complete query pipeline from tokenization
-                    through shunting-yard parsing to RPN evaluation.
-                </p>
-
-                <figure class="video-container">
-                    <iframe
-                        width="560"
-                        height="315"
-                        src="https://www.youtube.com/embed/2pizsEKHbJU"
-                        title="Record Tables Demo"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen
-                    >
-                    </iframe>
-                </figure>
-
-                <aside class="project-pitch">
-                    <h3>Project Overview</h3>
-                    <p>
-                        Record-tables showcases end-to-end systems programming
-                        in modern C++. The project implements a minimal but
-                        functional database engine that processes SQL-like
-                        queries through a sophisticated pipeline: a tokenizer
-                        breaks down user input, a shunting-yard parser converts
-                        expressions to Reverse Polish Notation, and an RPN
-                        evaluator executes queries over B+ tree-indexed data
-                        stored in binary files. What makes this project stand
-                        out is its from-scratch implementation of core data
-                        structures—including a B+ tree for logarithmic-time
-                        lookups, doubly linked lists, stacks, and queues—without
-                        relying on STL containers for the engine core.
-                    </p>
-                </aside>
-
-                <footer class="tech-stack">
-                    <span>C++</span>
-                    <span>B+ Tree Indexing</span>
-                    <span>SQL Parser</span>
-                    <span>Binary File I/O</span>
-                    <span>CMake</span>
-                    <span>GoogleTest</span>
-                </footer>
-            </section>
-
-            <section class="project-card" data-index="4">
-                <header class="project-header">
-                    <h2>Assembly Calculator</h2>
-                </header>
-                <p class="project-description">
-                    A fully functional calculator built from scratch using x86
-                    Assembly language and the Irvine Library. Features
-                    mathematical operations with ASCII, unpacked BCD, and packed
-                    BCD number manipulations.
-                </p>
-
-                <figure class="video-container">
-                    <iframe
-                        width="560"
-                        height="315"
-                        src="https://www.youtube.com/embed/NC6vwg5ld2M"
-                        title="Assembly Calculator Demo"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen
-                    >
-                    </iframe>
-                </figure>
-
-                <aside class="project-pitch">
-                    <h3>Project Overview</h3>
-                    <p>
-                        This project showcases my ability to work at the
-                        hardware-software interface by implementing a calculator
-                        entirely in Assembly language. Rather than relying on
-                        high-level abstractions, I manually handled number
-                        conversions between ASCII and BCD formats, implemented
-                        arithmetic operations at the bit level, and managed
-                        memory directly. This project demonstrates not just
-                        programming skill, but a deep understanding of how
-                        computers process data at the most fundamental
-                        level—perfect for roles requiring systems programming,
-                        embedded development, or performance-critical
-                        applications.
-                    </p>
-                </aside>
-
-                <footer class="tech-stack">
-                    <span>x86 Assembly</span>
-                    <span>Irvine Library</span>
-                    <span>BCD Arithmetic</span>
-                    <span>Memory Management</span>
-                </footer>
-            </section>
+            <project-card
+                data-index="3"
+                title="Record Tables Database Engine"
+                description="A lightweight C++ record/table engine featuring SQL-like query processing, B+ tree indexing, and binary file storage. Implements a complete query pipeline from tokenization through shunting-yard parsing to RPN evaluation."
+                image="../assets/gif/RecordTable.gif"
+                image-alt="Record Tables Database Engine demo showing SQL-like query processing"
+                link="https://www.youtube.com/watch?v=2pizsEKHbJU"
+                overview="Record-tables showcases end-to-end systems programming in modern C++. The project implements a minimal but functional database engine that processes SQL-like queries through a sophisticated pipeline: a tokenizer breaks down user input, a shunting-yard parser converts expressions to Reverse Polish Notation, and an RPN evaluator executes queries over B+ tree-indexed data stored in binary files. What makes this project stand out is its from-scratch implementation of core data structures—including a B+ tree for logarithmic-time lookups, doubly linked lists, stacks, and queues—without relying on STL containers for the engine core."
+                tags="C++, B+ Tree Indexing, SQL Parser, Binary File I/O, CMake, GoogleTest"
+            ></project-card>
         </article>
     </body>
 </html>
