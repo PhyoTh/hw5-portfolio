@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>CRUD Manager - Projects</title>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&display=swap');
+
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                font-family: 'Fira Code', 'Courier New', monospace;
+                background-color: #1e1e1e;
+                color: #d4d4d4;
+
+                padding: 2rem 3rem;
+                line-height: 1.8;
+                font-size: 0.9rem;
+
+                transition: background-color 0.3s ease, color 0.3s ease;
+            }
+
+            body.light-theme {
+                background-color: #ffffff;
+                color: #3a3a3a;
+            }
+
+            article {
+                max-width: 1200px;
+                margin: 0 auto;
+            }
+
+            @media (max-width: 768px) {
+                body {
+                    padding: 1.5rem 2rem;
+                    font-size: 0.85rem;
+                }
+            }
+
+            @media (max-width: 480px) {
+                body {
+                    padding: 1rem 1.5rem;
+                    font-size: 0.8rem;
+                }
+            }
+        </style>
+        <link rel="stylesheet" href="../css/projects.css" />
+        <link rel="stylesheet" href="../css/crud.css" />
+        <script src="../js/theme.js"></script>
+        <script src="../js/project-card.js"></script>
+        <script src="../js/crud-manager.js"></script>
+    </head>
+    <body>
+        <article>
+            <h1>CRUD Manager - Projects</h1>
+
+            <!-- Success/Error Messages -->
+            <div id="message-container"></div>
+
+            <!-- CRUD Form -->
+            <section class="crud-form-section">
+                <h2>Create / Update Project</h2>
+                <form id="crud-form">
+                    <input type="hidden" id="project-id" />
+
+                    <div class="form-group">
+                        <label for="project-index">Index:</label>
+                        <input
+                            type="text"
+                            id="project-index"
+                            name="index"
+                            placeholder="e.g., 1"
+                            required
+                        />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="project-title">Title:</label>
+                        <input
+                            type="text"
+                            id="project-title"
+                            name="title"
+                            placeholder="e.g., # Assembly Typing Game"
+                            required
+                        />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="project-description">Description:</label>
+                        <textarea
+                            id="project-description"
+                            name="description"
+                            rows="3"
+                            placeholder="Short description of the project"
+                            required
+                        ></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="project-image">Image URL:</label>
+                        <input
+                            type="url"
+                            id="project-image"
+                            name="image"
+                            placeholder="../assets/gif/project.gif"
+                            required
+                        />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="project-image-alt">Image Alt Text:</label>
+                        <input
+                            type="text"
+                            id="project-image-alt"
+                            name="imageAlt"
+                            placeholder="Descriptive alt text for the image"
+                            required
+                        />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="project-link">Link (YouTube/Demo):</label>
+                        <input
+                            type="url"
+                            id="project-link"
+                            name="link"
+                            placeholder="https://www.youtube.com/watch?v=..."
+                            required
+                        />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="project-overview">Overview:</label>
+                        <textarea
+                            id="project-overview"
+                            name="overview"
+                            rows="5"
+                            placeholder="Detailed project overview"
+                            required
+                        ></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="project-tags"
+                            >Tags (comma-separated):</label
+                        >
+                        <input
+                            type="text"
+                            id="project-tags"
+                            name="tags"
+                            placeholder="JavaScript, React, Node.js"
+                            required
+                        />
+                    </div>
+
+                    <div class="form-actions">
+                        <button
+                            type="submit"
+                            class="btn btn-primary"
+                            id="submit-btn"
+                        >
+                            Create Project
+                        </button>
+                        <button
+                            type="button"
+                            class="btn btn-secondary"
+                            id="cancel-btn"
+                        >
+                            Cancel / Clear
+                        </button>
+                    </div>
+                </form>
+            </section>
+
+            <!-- Projects List -->
+            <section class="projects-list-section">
+                <div class="section-header">
+                    <h2>Existing Projects</h2>
+                    <button class="btn btn-refresh" id="refresh-btn">
+                        ↻ Refresh
+                    </button>
+                </div>
+
+                <div id="projects-list"></div>
+            </section>
+        </article>
+    </body>
+</html>

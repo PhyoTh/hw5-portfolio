@@ -6,6 +6,8 @@
         <title>projects.ipynb</title>
         <style>
             @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&display=swap');
+
+            /* Critical styles - loaded inline for performance */
             * {
                 margin: 0;
                 padding: 0;
@@ -34,49 +36,10 @@
                 margin: 0 auto;
             }
 
-            h1 {
-                position: relative;
-                margin-bottom: 2rem;
-                padding-left: 2rem;
-
-                color: #4ec9b0;
-                font-size: 2rem;
-            }
-
-            /* animation styling */
-            project-card {
-                animation: fadeInUp 0.6s ease-out forwards;
-                opacity: 0;
-            }
-            project-card:nth-child(2) {
-                animation-delay: 0.1s;
-            }
-            project-card:nth-child(3) {
-                animation-delay: 0.2s;
-            }
-            project-card:nth-child(4) {
-                animation-delay: 0.3s;
-            }
-            @keyframes fadeInUp {
-                from {
-                    opacity: 0;
-                    transform: translateY(20px);
-                }
-                to {
-                    opacity: 1;
-                    transform: translateY(0);
-                }
-            }
-
             @media (max-width: 768px) {
                 body {
                     padding: 1.5rem 2rem;
                     font-size: 0.85rem;
-                }
-
-                h1 {
-                    font-size: 1.5rem;
-                    padding-left: 1.5rem;
                 }
             }
 
@@ -85,52 +48,26 @@
                     padding: 1rem 1.5rem;
                     font-size: 0.8rem;
                 }
-
-                h1 {
-                    font-size: 1.3rem;
-                    padding-left: 1rem;
-                }
             }
         </style>
+        <link rel="stylesheet" href="../css/projects.css" />
         <script src="../js/theme.js"></script>
         <script src="../js/project-card.js"></script>
+        <script src="../js/data-loader.js"></script>
     </head>
     <body>
         <article>
             <h1>Projects Portfolio</h1>
 
-            <project-card
-                data-index="1"
-                title="# Assembly Typing Game"
-                description="A retro-style typing game built entirely in x86 Assembly Language, featuring customizable difficulty levels and an arcade-inspired UI. Challenge your typing speed as words fall from the top of the screen!"
-                image="../assets/gif/TypingGame.gif"
-                image-alt="Assembly Typing Game demo showing words falling from the top of the screen"
-                link="https://www.youtube.com/watch?v=qofZkrQc83M"
-                overview="This typing game demonstrates low-level programming expertise by implementing an interactive arcade experience entirely in x86 Assembly Language. Linked with the Irvine Library, the project features dynamic word generation, adjustable game speed, and a polished user interface inspired by the popular ZType game. Players race against falling words, testing both their typing accuracy and speed. The project showcases my ability to work with hardware-level programming concepts including memory management, real-time input handling, and graphics rendering—all without the abstractions of high-level languages."
-                tags="x86 Assembly, Irvine Library, Real-time Input, Memory Management"
-            ></project-card>
+            <!-- Controls Section -->
+            <section class="controls">
+                <span class="controls-label">Load Projects:</span>
+                <button id="load-local-btn" class="btn">Load Local</button>
+                <button id="load-remote-btn" class="btn">Load Remote</button>
+            </section>
 
-            <project-card
-                data-index="2"
-                title="C++ Graphing Calculator"
-                description="A C++ graphing calculator that parses mathematical expressions using the Shunting Yard algorithm and renders real-time plots with custom data structures."
-                image="../assets/gif/GraphingCalculator.gif"
-                image-alt="C++ Graphing Calculator demo showing real-time function plotting"
-                link="https://www.youtube.com/watch?v=RbQpmkbzOAI"
-                overview="This graphing calculator showcases low-level systems programming and algorithm implementation in C++. Built from the ground up with custom linked-list-based Stack and Queue data structures, it uses the Shunting Yard algorithm to parse complex mathematical expressions and converts them to Reverse Polish Notation (RPN) for efficient evaluation. The SFML graphics library powers real-time visualization, rendering smooth function plots as users input equations. This project demonstrates strong fundamentals in data structures, parsing algorithms, and graphics programming—all without relying on high-level abstractions or libraries for core functionality."
-                tags="C++, SFML Graphics, Shunting Yard Algorithm, Custom Data Structures, RPN Evaluation"
-            ></project-card>
-
-            <project-card
-                data-index="3"
-                title="Record Tables Database Engine"
-                description="A lightweight C++ record/table engine featuring SQL-like query processing, B+ tree indexing, and binary file storage. Implements a complete query pipeline from tokenization through shunting-yard parsing to RPN evaluation."
-                image="../assets/gif/RecordTable.gif"
-                image-alt="Record Tables Database Engine demo showing SQL-like query processing"
-                link="https://www.youtube.com/watch?v=2pizsEKHbJU"
-                overview="Record-tables showcases end-to-end systems programming in modern C++. The project implements a minimal but functional database engine that processes SQL-like queries through a sophisticated pipeline: a tokenizer breaks down user input, a shunting-yard parser converts expressions to Reverse Polish Notation, and an RPN evaluator executes queries over B+ tree-indexed data stored in binary files. What makes this project stand out is its from-scratch implementation of core data structures—including a B+ tree for logarithmic-time lookups, doubly linked lists, stacks, and queues—without relying on STL containers for the engine core."
-                tags="C++, B+ Tree Indexing, SQL Parser, Binary File I/O, CMake, GoogleTest"
-            ></project-card>
+            <!-- Projects Container (dynamically populated) -->
+            <div id="projects-container"></div>
         </article>
     </body>
 </html>
