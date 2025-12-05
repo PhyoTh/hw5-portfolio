@@ -1,19 +1,6 @@
 :root {
-    --primary-background: #1e1e1e;
-    --secondary-background: #2a2a2a;
-
-    --text-color: #d4d4d4;
-    --accent-color: #007acc;
-
-    --teal: #4ec9b0;
-    --blue: #569cd6;
-    --cyan: #9cdcfe;
-    --orange: #ce9178;
-    --yellow: #ffd700;
-    --green: #b5cea8;
-    --gray-border: #3e3e42;
+    --gray-text: #6a6a6a; /* Only if not in common.css */
 }
-
 
 /* everything about theme */
 body.light-theme {

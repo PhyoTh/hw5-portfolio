@@ -1,8 +1,4 @@
 /* everything about theme */
-body.light-theme {
-    background-color: #ffffff;
-    color: #3a3a3a;
-}
 body.light-theme section {
     background: linear-gradient(135deg, #ececec 0%, #f8f8f8 100%);
 }

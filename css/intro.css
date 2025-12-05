@@ -1,23 +1,3 @@
-:root {
-    --color-teal: #4ec9b0;
-    --color-blue: #569cd6;
-    --color-purple: #c586c0;
-    --color-yellow: #dcdcaa;
-    --color-orange: #ce9178;
-    --color-cyan: #9cdcfe;
-
-    --spacing-lg: 3rem;
-    --spacing-md: 2rem;
-    --spacing-sm: 1.5rem;
-    --spacing-unit: 1rem;
-}
-
-
-/* everything about theme */
-body.light-theme {
-    background-color: #ffffff;
-    color: #3a3a3a;
-}
 body.light-theme h2 {
     color: #2a2a2a;
 }

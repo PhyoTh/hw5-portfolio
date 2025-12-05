@@ -1,0 +1,183 @@
+/* ============================================
+   COMMON STYLES - Shared across all pages
+   ============================================ */
+
+/* Font Import */
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&display=swap');
+
+/* CSS Variables - Core Colors */
+:root {
+    /* Dark theme colors */
+    --primary-background: #1e1e1e;
+    --secondary-background: #2a2a2a;
+    --tertiary-background: #2d2d30;
+
+    --text-color: #d4d4d4;
+    --accent-color: #007acc;
+
+    /* VS Code theme colors */
+    --teal: #4ec9b0;
+    --blue: #569cd6;
+    --cyan: #9cdcfe;
+    --orange: #ce9178;
+    --yellow: #dcdcaa;
+    --purple: #c586c0;
+    --green: #b5cea8;
+    --gray-border: #3e3e42;
+    --gray-text: #858585;
+
+    /* Spacing */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2rem;
+    --spacing-xl: 3rem;
+}
+
+/* Universal Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Base Body Styles */
+body {
+    font-family: 'Fira Code', 'Courier New', monospace;
+    font-size: 0.9rem;
+
+    background-color: var(--primary-background);
+    color: var(--text-color);
+
+    padding: var(--spacing-lg) var(--spacing-xl);
+    line-height: 1.8;
+
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Light Theme Base */
+body.light-theme {
+    background-color: #ffffff;
+    color: #3a3a3a;
+}
+
+/* Common Article Container */
+article {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Common Heading Styles */
+h1 {
+    color: var(--teal);
+    font-size: 2rem;
+    margin-bottom: var(--spacing-lg);
+}
+
+h2 {
+    color: var(--teal);
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: var(--spacing-md);
+}
+
+h3 {
+    color: var(--yellow);
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: var(--spacing-sm);
+}
+
+/* Common Text Styles */
+p {
+    margin: var(--spacing-sm) 0;
+    line-height: 1.8;
+}
+
+strong,
+b {
+    color: var(--orange);
+    font-weight: 700;
+}
+
+em,
+i {
+    color: var(--cyan);
+    font-style: italic;
+}
+
+/* Common List Styles */
+ul,
+ol {
+    padding-left: 2rem;
+    margin: var(--spacing-sm) 0;
+}
+
+li {
+    margin: 0.5rem 0;
+    line-height: 1.6;
+}
+
+/* Common Button Styles */
+button {
+    font-family: 'Fira Code', monospace;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Common Animation - Fade In Up */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Common Media Queries - Tablet */
+@media (max-width: 768px) {
+    body {
+        padding: var(--spacing-md) var(--spacing-lg);
+        font-size: 0.85rem;
+    }
+
+    article {
+        max-width: 100%;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    h2 {
+        font-size: 1.4rem;
+    }
+
+    h3 {
+        font-size: 1.2rem;
+    }
+}
+
+/* Common Media Queries - Mobile */
+@media (max-width: 480px) {
+    body {
+        padding: var(--spacing-sm) var(--spacing-md);
+        font-size: 0.8rem;
+    }
+
+    h1 {
+        font-size: 1.3rem;
+    }
+
+    h2 {
+        font-size: 1.2rem;
+    }
+
+    h3 {
+        font-size: 1.1rem;
+    }
+}
