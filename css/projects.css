@@ -244,6 +244,9 @@ body.light-theme .error-message {
 /* Projects container */
 #projects-container {
     min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
 }
 
 /* Animation styling */
